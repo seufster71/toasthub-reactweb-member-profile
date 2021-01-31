@@ -17,11 +17,12 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 
-export default function ProfileView({currentState, fields, texts, labels, onChangeLogin,
-	onChangeRegistration, fieldChangeEvent, onForgotPassword,
-	fieldBlurEvent, buttonClick, handleChange, changeView }) {
+export default function ProfileView({itemState, appPrefs, onSave, onCancel, inputChange, onOption, session}) {
 
 
+	let viewPortSmall = false;
+	if (session.viewPort === 'small') { viewPortSmall = true }
+	
     return (
     	<div>
     		<div> Profile Page </div>
@@ -31,16 +32,7 @@ export default function ProfileView({currentState, fields, texts, labels, onChan
 
 
 ProfileView.propTypes = {
-	currentState: PropTypes.object,
-	fields: PropTypes.object,
-	texts: PropTypes.object,
-	labels: PropTypes.object,
-	onChangeLogin: PropTypes.func,
-	onChangeRegistration: PropTypes.func,
-	onForgotPassword: PropTypes.func,
-	fieldChangeEvent: PropTypes.func,
-	fieldBlurEvent: PropTypes.func,
-	buttonClick: PropTypes.func,
-	handleChange: PropTypes.func,
-	changeView: PropTypes.func
+	itemState: PropTypes.object.isRequired,
+	onOption: PropTypes.func,
+	session: PropTypes.object
 };
